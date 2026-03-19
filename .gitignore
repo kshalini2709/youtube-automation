@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+.env
+client_secret.json
+youtube_accounts.json
+downloads/
+uploads/
+tokens/
+*.mp4
+*.m4a
+*.part
+single_link_pipeline/download/
+single_link_pipeline/final/

@@ -1,0 +1,152 @@
+YOUTUBE ACCOUNT AUTH SETUP (GOOGLE CLOUD) – STEP BY STEP
+======================================================
+
+PURPOSE:
+---------
+Is setup ka use YouTube Automation Tool me
+multiple YouTube accounts ko login + upload permission dene ke liye hota hai.
+
+
+REQUIREMENTS:
+-------------
+1. Google Account
+2. YouTube Channel (jis account se upload karna hai)
+3. Desktop / Laptop
+4. Browser (Chrome recommended)
+
+
+STEP 1: GOOGLE CLOUD CONSOLE OPEN KARE
+-------------------------------------
+1. Browser me open kare:
+   https://console.cloud.google.com/
+
+2. Apne Google account se login kare
+
+
+STEP 2: NEW PROJECT CREATE KARE
+-------------------------------
+1. Top bar me "Select a project" pe click kare
+2. "NEW PROJECT" pe click kare
+3. Project Name likhe (example):
+   youtube-automation
+4. Location = No organization
+5. "CREATE" pe click kare
+
+
+STEP 3: YOUTUBE DATA API ENABLE KARE
+------------------------------------
+1. Left sidebar → APIs & Services → Library
+2. Search kare: YouTube Data API v3
+3. API open kare
+4. "ENABLE" button pe click kare
+
+
+STEP 4: OAUTH CONSENT SCREEN CONFIGURE KARE
+-------------------------------------------
+1. Left sidebar → APIs & Services → OAuth consent screen
+2. User Type select kare:
+   External
+3. Click: CREATE
+
+BASIC INFO:
+-----------
+• App name: YouTube Automation Tool
+• User support email: apna email select kare
+• Developer contact email: same email
+• SAVE AND CONTINUE
+
+SCOPES:
+-------
+• "ADD OR REMOVE SCOPES" pe click kare
+• Search kare:
+  youtube
+• Ye scopes select kare:
+  - https://www.googleapis.com/auth/youtube.readonly
+  - https://www.googleapis.com/auth/youtube.upload
+  - https://www.googleapis.com/auth/youtube
+• UPDATE → SAVE AND CONTINUE
+
+TEST USERS:
+-----------
+• "ADD USERS" pe click kare
+• Jis YouTube account ko login karna hai
+  uska Gmail ID add kare
+• SAVE AND CONTINUE
+
+SUMMARY:
+--------
+• SAVE AND CONTINUE
+
+
+STEP 5: OAUTH CLIENT ID CREATE KARE
+----------------------------------
+1. APIs & Services → Credentials
+2. Click: CREATE CREDENTIALS
+3. Select: OAuth client ID
+
+APPLICATION TYPE:
+-----------------
+• Desktop app
+
+NAME:
+-----
+• youtube-automation-desktop
+
+4. Click: CREATE
+
+
+STEP 6: CLIENT SECRET DOWNLOAD KARE
+-----------------------------------
+1. OAuth Client ID create hone ke baad
+   ek popup aayega
+2. "DOWNLOAD JSON" pe click kare
+3. File ka naam change kare:
+   client_secret.json
+4. Is file ko project folder me rakhe
+   (same folder jaha app.py hai)
+
+
+STEP 7: FIRST TIME LOGIN (IMPORTANT)
+-----------------------------------
+1. App run kare:
+   streamlit run app.py
+
+2. "YouTube Accounts" section open kare
+3. "Add YouTube Account" button pe click kare
+4. Browser open hoga → Google login
+5. Permission allow kare
+6. Login complete hone ke baad:
+   Account successfully add ho jayega
+
+
+IMPORTANT NOTES:
+----------------
+• Test Users me email add karna compulsory hai
+  (jab tak app verify nahi hota)
+
+• Free usage ke liye:
+  OAuth consent screen "Testing" mode me hi chalega
+
+• Ek project se multiple YouTube accounts
+  (10–20 easily) add kiye ja sakte hain
+
+• Tokens automatically "tokens/" folder me save honge
+
+
+COMMON ERRORS & SOLUTION:
+------------------------
+❌ 403 / insufficient permissions
+✔ Correct scopes select nahi hue → scopes recheck kare
+
+❌ Login ke baad account add nahi hota
+✔ Email Test Users me add nahi hai
+
+❌ client_secret.json not found
+✔ File project root folder me nahi hai
+
+
+SETUP COMPLETE ✅
+-----------------
+Ab tool ready hai:
+• Multiple accounts add karne ke liye
+• Scheduler / Upload / Automation use karne ke liye
